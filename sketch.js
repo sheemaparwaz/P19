@@ -7,7 +7,8 @@ function preload(){
     SonicImg = loadImage("Sonic -1.png");
     jumping_sonic = loadImage("Jumping sonic 2.png")
 
-    platformImg = loadImage("clip.png");}
+    platformImg = loadImage("clip.png");
+  }
 
 function setup() {
     createCanvas(800,600)
@@ -18,6 +19,8 @@ function setup() {
   
     sonic = createSprite(300,300)
     sonic.addImage("sonic",SonicImg);
+    sonic.addImage("sonicjumping",jumping_sonic);
+    sonic.changeImage("sonic",SonicImg);
     sonic.scale=0.18 
     //sonic.debug=true
     sonic.setCollider("rectangle",0,0,125,sonic.height)
@@ -32,7 +35,7 @@ function draw() {
   }
 
   if(keyDown("space")){
-    sonic.changeAnimation("sonicjumping",jumping_sonic) 
+    sonic.changeImage("sonicjumping",jumping_sonic) 
     sonic.velocityY=-13
   }
 
